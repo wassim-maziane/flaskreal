@@ -1,4 +1,17 @@
+"""
+Equipe :
 
+Ismail Iaraben
+Ismail bousraf
+Wassime maziane
+Abdelghafour Bouhdyd
+
+Remarque :
+
+Pour visualiser tous les éléments de notre application, il est nécessaire d'avoir accès à Internet,
+car nous avons utilisé des liens Bootstrap pour la mise en forme et l'affichage de certaines fonctionnalités.
+
+"""
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from forms.forms import BookForm
@@ -63,6 +76,7 @@ def delete(id):
 
 @app.route('/search')
 def search():
+
     query = request.args.get('query')
     books = Book.query.filter(Book.title.ilike(f'%{query}%')).all()
     return render_template('search.html', query=query, books=books)
