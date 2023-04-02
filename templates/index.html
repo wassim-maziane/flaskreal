@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Librairie</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Genre</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.genre }}</td>
+          <td><a href="{{ url_for('edit', id=book.id) }}">Modifier</a></td>
+          <td><a href="{{ url_for('delete', id=book.id) }}">Supprimer</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{{ url_for('add') }}">Ajouter un livre</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Modifier {{ book.title }}</h1>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div>
+      {{ form.title.label }} {{ form.title }}
+      {% for error in form.title.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.author.label }} {{ form.author }}
+      {% for error in form.author.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.genre.label }} {{ form.genre }}
+      {% for error in form.genre.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
+  <a href="{{ url_for('index') }}">Retour à la librarie</a>
+{% endblock %}
+
