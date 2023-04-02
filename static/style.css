@@ -10,7 +10,6 @@ th, td {
 
 th {
   background-color: #004d99;
-  color: white;
 }
 
 tr:nth-child(even) {
@@ -30,4 +29,17 @@ a:hover {
   width: 80%;
   margin: 0 auto;
 }
+
+.title_text {
+    margin: 5%;
+    color : #34495E;
+}
+
+legend {
+    color:#85929E ;
+
+}
+
+
+
 

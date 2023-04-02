@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Ajouter un livre</h1>
+  <legend class="text-center">Ajouter un livre</legend>
   <form method="POST">
     {{ form.hidden_tag() }}
     <div>
-      {{ form.title.label }} {{ form.title }}
+      {{ form.title.label(class="form-label") }}
+      {{ form.title(class="form-control") }}
       {% for error in form.title.errors %}
         <span>{{ error }}</span>
       {% endfor %}
     </div>
     <div>
-      {{ form.author.label }} {{ form.author }}
+      {{ form.author.label(class="form-label") }}
+      {{ form.author(class="form-control") }}
       {% for error in form.author.errors %}
         <span>{{ error }}</span>
       {% endfor %}
     </div>
     <div>
-      {{ form.genre.label }} {{ form.genre }}
+      {{ form.genre.label(class="form-label") }}
+      {{ form.genre(class="form-control") }}
       {% for error in form.genre.errors %}
         <span>{{ error }}</span>
       {% endfor %}
     </div>
+    <p></p>
     <div>
-      {{ form.submit }}
+      {{ form.submit(class="btn btn-primary") }}
     </div>
   </form>
-  <a href="{{ url_for('index') }}">Retour à la librairie</a>
+  <p></p>
+  <a href="{{ url_for('index') }}" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Retour à la librairie</a>
 {% endblock %}
 

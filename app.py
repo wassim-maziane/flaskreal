@@ -17,7 +17,7 @@ class Book(db.Model):
     genre = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
-        return f'<Book {self.title}>'
+        return f'<Le livre {self.title}>'
 
 @app.route('/')
 def index():
@@ -35,7 +35,7 @@ def add():
         )
         db.session.add(book)
         db.session.commit()
-        flash('Book added successfully!')
+        flash('Le livre est ajouté avec succès!',"success")
         return redirect(url_for('index'))
     return render_template('add.html', form=form)
 
@@ -43,12 +43,13 @@ def add():
 def edit(id):
     book = Book.query.get_or_404(id)
     form = BookForm(obj=book)
+
     if form.validate_on_submit():
         book.title = form.title.data
         book.author = form.author.data
         book.genre = form.genre.data
         db.session.commit()
-        flash('Book updated successfully!')
+        flash('Le livre a été mis à jour avec succès!',"success")
         return redirect(url_for('index'))
     return render_template('edit.html', form=form, book=book)
 
@@ -57,7 +58,7 @@ def delete(id):
     book = Book.query.get_or_404(id)
     db.session.delete(book)
     db.session.commit()
-    flash('Book deleted successfully!')
+    flash('Le livre est supprimé avec succès!',"success")
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
