@@ -9,6 +9,25 @@
   </head>
   <body style="background-color: #F0EEED;">
 
+
+
+
+  <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Librarie</a>
+    <form class="d-flex" role="search" action="{{ url_for('search') }}"  method="get">
+      <input class="form-control me-2"  type="text" name="query" placeholder="Chercher le Livre..." aria-label="Chercher">
+      <button class="btn btn-outline-success" type="submit">Chercher</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+
+
+
     <div class="container">
         <h1 class="text-center font-monospace title_text">Librarie INPT en ligne</h1>
 

@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from forms.forms import BookForm
 
@@ -60,6 +60,12 @@ def delete(id):
     db.session.commit()
     flash('Le livre est supprimé avec succès!',"success")
     return redirect(url_for('index'))
+
+@app.route('/search')
+def search():
+    query = request.args.get('query')
+    books = Book.query.filter(Book.title.ilike(f'%{query}%')).all()
+    return render_template('search.html', query=query, books=books)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,8 +2,7 @@
 
 {% block content %}
 
-
-
+  <legend class="text-center">Resultat de recherche pour "{{ query }}"</legend>
 
   <table class="table table-striped">
     <thead>
@@ -16,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-
+    {% if books %}
       {% for book in books %}
         <tr>
           <td>{{ book.title }}</td>
@@ -26,9 +25,13 @@
           <td><a href="{{ url_for('delete', id=book.id) }}" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Supprimer</a></td>
         </tr>
       {% endfor %}
-
+    {% else %}
+    <div class="alert alert-warning">
+        Aucun Resultat disponible.
+    </div>
+    {% endif %}
     </tbody>
 
   </table>
-  <a href="{{ url_for('add') }}" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ajouter un livre</a>
+  <a href="{{ url_for('index') }}" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Retour à la librarie</a>
 {% endblock %}
