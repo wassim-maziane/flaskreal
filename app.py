@@ -1,12 +1,4 @@
 """
-Equipe :
-
-Ismail Iaraben
-Ismail bousraf
-Wassime maziane
-Abdelghafour Bouhdyd
-
-Remarque :
 
 Pour visualiser tous les éléments de notre application, il est nécessaire d'avoir accès à Internet,
 car nous avons utilisé des liens Bootstrap pour la mise en forme et l'affichage de certaines fonctionnalités.
